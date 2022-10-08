@@ -1,8 +1,8 @@
 //El Login es la primer parte de la aplicacion.
 //El usuario y la contraseña se daran definidos en las dos siguientes variables:
 
-let userdefined = "admin";
-let passwordefined = "admin";
+let userdefined = "coder";
+let passwordefined = "coder";
 //Y nuestro formulario verificara que estas coincidan con dichos valores, cerrando nuestra pantalla
 //de logeo hasta la siguiente sesion mediante sessionStorage.
 
@@ -16,11 +16,9 @@ let loginform = document.getElementById("login");
 loginform.addEventListener("submit", (e) => {
   e.preventDefault();
   let logindata = e.target.children;
-  console.log(logindata);
   let user = logindata[2].value;
   let password = logindata[2].value;
-  console.log(user);
-  console.log(password);
+
   if (user === userdefined && password === passwordefined) {
     Toastify({
       text: "Login Exitoso",
@@ -33,6 +31,7 @@ loginform.addEventListener("submit", (e) => {
       sessionStorage.setItem("logged", "logged");
       console.log(sessionStorage);
     }, 2000);
+
   }else if(user === "" || password === ""){
     Toastify({
       text: "Ingrese el Usuario y Contraseña",
@@ -41,6 +40,7 @@ loginform.addEventListener("submit", (e) => {
       },
     }).showToast();
   }
+
   else {
     Toastify({
       text: "Password o Usuario Incorrectos",

@@ -1,3 +1,5 @@
+//Body/sections      -------------------------------------------------------------------------------
+
 body{
 background-color: #101318;
 overflow-y:hidden!important;
@@ -8,7 +10,10 @@ overflow-x:hidden!important;
     color: #b2c5c0;
     font-family: 'Inter Tight', sans-serif;
 }
-// Login
+
+
+// Login            ---------------------------------------------------------------------------------
+
 .section-title{
     padding: 25px;
     font-size: 33px;
@@ -83,7 +88,9 @@ overflow-x:hidden!important;
       display: none;
     }
   }
-// Dashboard
+
+// Dashboard   -------------------------------------------------------------------------------------
+
 .dashboard{
     @extend .sections;
     text-align: center;
@@ -127,6 +134,8 @@ overflow-x:hidden!important;
         
     }
     &-card{
+        width: 25%;
+
         background-color: #202836;
         padding: 15px;
         box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
@@ -171,6 +180,9 @@ overflow-x:hidden!important;
         &-output{    
             display: flex;
             flex-direction: column;
+            overflow-y:auto;
+            height: 200px;                
+            scrollbar-color: dark;
             &__card{
                   width: 90%;
                   display: grid;
@@ -192,8 +204,49 @@ overflow-x:hidden!important;
     }
 }
 
-// Recepcion - CheckIn
+// Recepcion - CheckIn               --------------------------------------------------------------
 .checkin{
     @extend .sections;
     text-align: center;
+    &-columns{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    }
+    &-input form{
+        display: flex; 
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 80%;
+        height: 300px;
+        margin-left: 25px;
+        button{
+            background-color: #070a14;
+            color: #01C38D;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 9px;
+        }
+    }
+    &-output{
+        display: flex;
+        flex-direction: column;
+        overflow-x:auto;
+        width: 99%;               
+        scrollbar-color: dark;
+        height: 512px;
+    &__card{
+        width: 98%;
+        display: grid;
+        grid-template-columns: 6fr 3fr 3fr;
+        text-align: left;
+        margin: 2px;
+        background-color: #070a14;
+        color: #01C38D;
+        font-family: 'Inter Tight', sans-serif;
+        border-radius: 9px;
+        p{
+            padding: 3px;
+        }
+    }
+    }
 }

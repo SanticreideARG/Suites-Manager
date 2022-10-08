@@ -94,24 +94,26 @@
             <div class="dashboard-climate">
               <h2>Clima ahora</h2>
               <div class="dashboard-climate-info">
-                <div id="smaWheather" class="dashboard-climate-card">
-                  <!-- San Martin de los Andes wheather comes here through API -->
+                <div id="smaWeather" class="dashboard-climate-card">
+                  <!-- San Martin de los Andes Weather comes here through API -->
                 </div>                
-                <div id="chapWheather" class="dashboard-climate-card">
-                  <!-- Chapelco wheather comes here through API -->
+                <div id="chapWeather" class="dashboard-climate-card">
+                  <!-- Chapelco Weather comes here through API -->
                 </div>
-                <div id="nqnWheather" class="dashboard-climate-card">
-                  <!-- Neuquen wheather comes here through API -->
+                <div id="nqnWeather" class="dashboard-climate-card">
+                  <!-- Neuquen Weather comes here through API -->
                 </div>
               </div>
             </div>
           </div>
+          <!-- here start the Check Ins Section -->
           <div class="disabled" id="checkin">
-            <div class="checkin-input">
-                <h2 class="section-title">Check Ins</h2>
+            <h2 class="section-title">Check Ins</h2>
+            <div class="checkin-columns">
+             <div class="checkin-input">
                 <form action="" id="checkinForm">
                     <label for="room">Habitacion</label>
-                    <select name="room" id="room">
+                    <select name="room" id="room" required>
                         <option value="201">201</option>
                         <option value="202">202</option>
                         <option value="203">203</option>
@@ -119,12 +121,26 @@
                         <option value="205">205</option>
                         <option value="206">206</option>
                     </select>
+                    <label for="country">Nacionalidad</label>
+                    <select name="country" id="country" required>
+                        <option value="arg">Argentina</option>
+                        <option value="chi">Chile</option>
+                        <option value="bra">Brasil</option>
+                        <option value="per">Peru</option>
+                        <option value="ita">Italia</option>
+                        <option value="uru">Uruguay</option>
+                        <option value="rpc">China</option>
+                        <option value="esp">España</option>
+                        <option value="usa">Estados Unidos</option>
+                        <option value="fra">Francia</option>
+                        <option value="otr">Otros</option>
+                    </select>
                     <label for="name">Nombre</label>
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" id="name" required>
                     <label for="lastname">Apellido</label>
                     <input type="text" name="lastname" id="lastname">
                     <label for="days">Dias de estadia</label>
-                    <select name="days" id="days">
+                    <select name="days" id="days" required>
                         <option value="1">1 Dia</option>
                         <option value="2">2 Dias</option>
                         <option value="3">3 Dias</option>
@@ -136,13 +152,25 @@
                 </form>
             </div>
             <div class="checkin-output">
+                          <!-- Some card Examples. Real ones are rendered by JS -->
                 <div class="checkin-output__card">
-            <!-- Some card Examples. Real ones are rendered by JS -->
-                    <h3>Card Example</h3>
-                    <p>Name</p>
-                    <p>ID N213</p>
+                    <h3>Mr. Jhon Sioux</h3>
+                    <p>Room 205</p>
+                    <p>Argentina</p>
+                    <p>ID 25555</p>
+                    <p>Ingreso: 23/10/22</p>
+                    <p>Salida: 25/10/22</p>
                 </div>
+                <div class="checkin-output__card">
+                  <h3>Mr. Jhon Sioux</h3>
+                  <p>Room 205</p>
+                  <p>Argentina</p>
+                  <p>ID 25555</p>
+                  <p>Ingreso: 23/10/22</p>
+                  <p>Salida: 25/10/22</p>
+              </div>
             </div>
+          </div>
           </div>  
           <div class="disabled" id="checkout">
             <h2 class="section-title">Check Outs</h2>
@@ -162,6 +190,7 @@
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="js/dashboard.js"></script>
+    <script src="js/checkin.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

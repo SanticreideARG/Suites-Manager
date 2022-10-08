@@ -1,0 +1,10 @@
+@media (max-width: 868px) {
+    .login-window{
+        width: 90%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        &-logo img{
+            height: 280px;
+        }
+    }
+}

@@ -139,6 +139,7 @@ body {
       display: flex;
       justify-content: space-around; }
     .dashboard-climate-card {
+      width: 25%;
       background-color: #202836;
       padding: 15px;
       box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
@@ -172,7 +173,10 @@ body {
       border: none; }
   .dashboard-taskmngr-output {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    overflow-y: auto;
+    height: 200px;
+    scrollbar-color: dark; }
     .dashboard-taskmngr-output__card {
       width: 90%;
       display: grid;
@@ -190,3 +194,100 @@ body {
 
 .checkin {
   text-align: center; }
+  .checkin-columns {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; }
+  .checkin-input form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 80%;
+    height: 300px;
+    margin-left: 25px; }
+    .checkin-input form button {
+      background-color: #070a14;
+      color: #01C38D;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 9px; }
+  .checkin-output {
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
+    width: 99%;
+    scrollbar-color: dark;
+    height: 512px; }
+    .checkin-output__card {
+      width: 98%;
+      display: grid;
+      grid-template-columns: 6fr 3fr 3fr;
+      text-align: left;
+      margin: 2px;
+      background-color: #070a14;
+      color: #01C38D;
+      font-family: 'Inter Tight', sans-serif;
+      border-radius: 9px; }
+      .checkin-output__card p {
+        padding: 3px; }
+
+.sunnybg {
+  width: 25%;
+  padding: 15px;
+  box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
+  margin-top: 25px;
+  border-radius: 6px;
+  background-image: url(/assets/images/climate/sunnybg.jpg);
+  background-size: cover; }
+
+.cloudybg {
+  width: 25%;
+  padding: 15px;
+  box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
+  margin-top: 25px;
+  border-radius: 6px;
+  background-image: url(/assets/images/climate/cloudybg.jpg);
+  background-size: cover; }
+
+.rainybg {
+  width: 25%;
+  padding: 15px;
+  box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
+  margin-top: 25px;
+  border-radius: 6px;
+  background-image: url(/assets/images/climate/rainybg.jpg);
+  background-size: cover; }
+
+.windybg {
+  width: 25%;
+  padding: 15px;
+  box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
+  margin-top: 25px;
+  border-radius: 6px;
+  background-image: url(/assets/images/climate/windybg.jpg);
+  background-size: cover; }
+
+.snowybg {
+  width: 25%;
+  padding: 15px;
+  box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
+  margin-top: 25px;
+  border-radius: 6px;
+  background-image: url(/assets/images/climate/snowybg.jpg);
+  background-size: cover; }
+
+.stormybg {
+  width: 25%;
+  padding: 15px;
+  box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
+  margin-top: 25px;
+  border-radius: 6px;
+  background-image: url(/assets/images/climate/stormybg.jpg);
+  background-size: cover; }
+
+@media (max-width: 868px) {
+  .login-window {
+    width: 90%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr; }
+    .login-window-logo img {
+      height: 280px; } }
