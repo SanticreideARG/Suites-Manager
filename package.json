@@ -1,0 +1,28 @@
+{
+  "name": "suites-manager",
+  "version": "1.0.0",
+  "description": "A simple JS project",
+  "main": "index.js",
+  "scripts": {
+    "build": "node-sass --include-path sass ./sass/index.scss ./css/style.css -w"
+    },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SanticreideARG/Suites-Manager.git"
+  },
+  "keywords": [
+    "Hotel",
+    "Managment",
+    "JS",
+    "Projects"
+  ],
+  "author": "Santiago Creide",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SanticreideARG/Suites-Manager/issues"
+  },
+  "homepage": "https://github.com/SanticreideARG/Suites-Manager#readme",
+  "devDependencies": {
+    "node-sass": "^7.0.3"
+  }
+}

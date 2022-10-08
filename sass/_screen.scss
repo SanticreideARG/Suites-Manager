@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.display{
+    display: grid;
+    grid-template-columns: 1.2fr 7fr;
+}
+.login-window-logo img{
+    height: 400px;
+}
+.display-none{
+    display: none;
+}

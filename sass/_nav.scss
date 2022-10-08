@@ -1,0 +1,38 @@
+.navigation{
+    background-color: #132D46;
+    display: flex;
+    flex-direction: column;
+    &-button{
+        display: grid;
+        grid-template-columns: 1fr 6fr;
+    }
+    &-logo img{
+        height: 65px;
+        padding: 10px;
+    }
+    &-button{
+        padding: 0px 10px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 25px;
+        font-weight: 400;
+        color: #01C38D;
+        font-family: 'Inter Tight', sans-serif;
+    }
+}
+
+// User Nav
+
+.userbar{
+   @extend .navigation-button;
+   background-color: #0D1F30;
+   display: flex;
+   flex-direction: row-reverse;
+   font-weight: 200;
+   height: 5vh;
+}
+.material-icons{
+    color: #01C38D;
+    font-size: 30px;
+    padding: 0px 8px 10px 8px;
+}

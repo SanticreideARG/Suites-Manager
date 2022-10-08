@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200&display=swap");
+* {
+  margin: 0;
+  padding: 0; }
+
+.display {
+  display: grid;
+  grid-template-columns: 1.2fr 7fr; }
+
+.login-window-logo img {
+  height: 400px; }
+
+.display-none {
+  display: none; }
+
+.navigation {
+  background-color: #132D46;
+  display: flex;
+  flex-direction: column; }
+  .navigation-button, .userbar {
+    display: grid;
+    grid-template-columns: 1fr 6fr; }
+  .navigation-logo img {
+    height: 65px;
+    padding: 10px; }
+  .navigation-button, .userbar {
+    padding: 0px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 400;
+    color: #01C38D;
+    font-family: 'Inter Tight', sans-serif; }
+
+.userbar {
+  background-color: #0D1F30;
+  display: flex;
+  flex-direction: row-reverse;
+  font-weight: 200;
+  height: 5vh; }
+
+.material-icons {
+  color: #01C38D;
+  font-size: 30px;
+  padding: 0px 8px 10px 8px; }
+
+body {
+  background-color: #101318;
+  overflow-y: hidden !important;
+  overflow-x: hidden !important; }
+
+.sections, .dashboard {
+  min-height: 92vh;
+  color: #b2c5c0;
+  font-family: 'Inter Tight', sans-serif; }
+
+.section-title {
+  padding: 25px;
+  font-size: 33px; }
+
+.login {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #0a1022;
+  background-image: url(/assets/images/login-wallpaper.jpg);
+  background-size: cover;
+  top: 0;
+  left: 0;
+  padding-top: 25px; }
+  .login-window {
+    position: relative;
+    width: 70%;
+    height: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 8px 8px 6px 2px rgba(0, 0, 0, 0.75);
+    border-radius: 15px; }
+  .login-window-logo {
+    margin: auto; }
+    .login-window-logo img {
+      border-radius: 3px; }
+  .login-window-form {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column;
+    text-align: center; }
+    .login-window-form h2 {
+      margin-bottom: 25px; }
+    .login-window-form label {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 600; }
+    .login-window-form input {
+      width: 70%;
+      height: 22px;
+      border-radius: 3px; }
+    .login-window-form button {
+      border: none;
+      width: 50%;
+      height: 35px;
+      margin-top: 15px;
+      font-size: 18px;
+      color: #b2c5c0;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.1); }
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .login-window {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.5); }
+  .warning {
+    display: none; } }
+
+.dashboard {
+  text-align: center; }
+  .dashboard-info {
+    padding: 10px; }
+    .dashboard-info-cards {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 25px; }
+      .dashboard-info-cards :nth-child(2) {
+        background-color: #0a2214; }
+      .dashboard-info-cards :nth-child(3) {
+        background-color: #220a0a; }
+      .dashboard-info-cards :nth-child(4) {
+        background-color: #0a1022; }
+    .dashboard-info-card {
+      border-radius: 6px;
+      box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
+      display: flex;
+      flex-direction: column;
+      padding: 13px; }
+      .dashboard-info-card span {
+        font-size: 25px;
+        font-weight: 800;
+        color: #01C38D; }
+  .dashboard-climate {
+    margin-bottom: 25px; }
+    .dashboard-climate-info {
+      display: flex;
+      justify-content: space-around; }
+    .dashboard-climate-card {
+      background-color: #202836;
+      padding: 15px;
+      box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
+      margin-top: 25px;
+      border-radius: 6px; }
+  .dashboard-taskmngr h2 {
+    margin-bottom: 15px; }
+  .dashboard-taskmngr-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr; }
+  .dashboard-taskmngr-input {
+    margin: 25px;
+    display: block;
+    flex-direction: column; }
+    .dashboard-taskmngr-input input {
+      height: 26px;
+      margin: 16px;
+      width: 80%; }
+    .dashboard-taskmngr-input button {
+      margin: 8px;
+      padding: 8px;
+      background-color: #121212;
+      box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
+      border-radius: 5px;
+      color: #b2c5c0;
+      border: none; }
