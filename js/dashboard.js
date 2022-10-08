@@ -16,28 +16,6 @@ const getData = async () => {
       );
       const data = await respuesta.json();
       console.log(data);
-      const climaEnSanMartin = 
-      [ {"lugar": data[10].name},
-      {"descripcion": data[10].weather.description},
-      {"temperatura": data[10].weather.temp},
-      {"humedad": data[10].weather.humidity},
-      {"velocidad del viento": data[10].weather.wind_speed},
-      {"direccion del viento": data[10].weather.wing_deg},];
-        const climaEnNeuquen = 
-        [ {"lugar": data[8].name},
-        {"descripcion": data[8].weather.description},
-        {"temperatura": data[8].weather.temp},
-        {"humedad": data[8].weather.humidity},
-        {"velocidad del viento": data[8].weather.wind_speed},
-        {"direccion del viento": data[8].weather.wing_deg},]; 
-          const climaEnChapelco = 
-          [{"lugar": data[9].name},
-          {"descripcion": data[9].weather.description},
-          {"temperatura": data[9].weather.temp},
-          {"humedad": data[9].weather.humidity},
-          {"velocidad del viento": data[9].weather.wind_speed},
-          {"direccion del viento": data[9].weather.wing_deg},];
-  
          smaWheatherDiv.innerHTML = 
          `<h4>Clima en ${data[10].name}</h4>
          <p>${data[10].weather.description}</p>    
@@ -70,10 +48,32 @@ const getData = async () => {
     }
   };
   
-  
   document.addEventListener("DOMContentLoaded", () => {
     getData();
-  });
+});
   
 
-  //Administrador del Taskmanager en la tercer seccion del Dashboard
+//Administrador del Taskmanager en la tercer seccion del Dashboard
+//El TaskManager es un CRD sencillo para anotar tareas y eliminarlas luego de realizarlas.
+//Hace usoo de Local Storage.
+let taskmngrForm = document.getElementById("taskmngrForm");
+let taskmngrOutput = document.getElementById("taskmngrOutput");
+let outputid = 55;
+taskmngrForm.addEventListener("submit", (e)=>{
+e.preventDefault();
+let reserveInputs = e.target.children;
+let output = reserveInputs[2].value;
+outputid = outputid++;
+createTask(output, outputid)
+})
+const createTask = (input, id) => {
+  let task =  document.createElement('div');
+  task.innerHTML = `<div class="dashboard-taskmngr-output__card"><span class="material-icons pills-icons">task</span>
+  <p>${input}</p>
+  <span id=trashButton class="material-icons pills-icons">delete</span>`;
+  taskmngrOutput.appendChild(task);
+  let trashButton = document.getElementById("trashButton");
+  trashButton.addEventListener('click',() =>{
+  taskmngrOutput.removeChild(task);
+  })
+}

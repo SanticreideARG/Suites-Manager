@@ -7,6 +7,7 @@
     <title>Suites Manager - A JS project</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"    rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   </head>
   <body>
     <div class="display">
@@ -16,19 +17,19 @@
         </div>
         <div class="navigation-button">
           <span class="material-icons pills-icons">article</span>
-          <a class="navigation-button" href="#dashboard">Dashboard</a>
+          <a id="dashboardLink" class="navigation-button" href="#dashboard">Dashboard</a>
         </div>
-        <div class="navigation-button">
+        <div  class="navigation-button">
           <span class="material-icons pills-icons">bed</span>
-          <a class="navigation-button" href="#checkin">Recepcion</a>
+          <a id="checkinLink" class="navigation-button" href="#checkin">Recepcion</a>
         </div>
         <div class="navigation-button">
           <span class="material-icons pills-icons">outbox</span>
-          <a class="navigation-button" href="#checkout">Salida</a>
+          <a id="checkoutLink" class="navigation-button" href="#checkout">Salida</a>
         </div>
         <div class="navigation-button">
           <span class="material-icons pills-icons">history</span>
-          <a class="navigation-button" href="#history">Registro</a>
+          <a id="historyLink" class="navigation-button" href="#history">Registro</a>
         </div>
         <div class="navigation-button">
           <span class="material-icons pills-icons">settings</span>
@@ -36,10 +37,6 @@
         </div>
       </nav>
       <main>
-        <div class="userbar" id="userbar">
-          <span class="material-icons pills-icons">person</span>
-            <p>Santiago Creide</p>
-        </div>
         <div class="sections">
           <div id="login" class="login">
             <div class="login-window">
@@ -79,6 +76,21 @@
                 </div>
               </div>
             </div>
+            <div class="dashboard-taskmngr">
+              <h2>Block de Notas</h2>
+              <div class="dashboard-taskmngr-columns">
+                <div class="dashboard-taskmngr-input">
+                  <form id="taskmngrForm">
+                    <label for="taskmngr">Ingrese Notas</label><br>
+                    <input type="text" name="taskmngr" id="taskmngr" /><br>
+                    <button type="submit">Guardar</button>
+                  </form>
+                </div>
+                <div id="taskmngrOutput" class="dashboard-taskmngr-output">
+                  <!-- Output tasks from Dashboard.js generate divs here -->
+                </div>
+              </div>
+            </div>
             <div class="dashboard-climate">
               <h2>Clima ahora</h2>
               <div class="dashboard-climate-info">
@@ -93,21 +105,8 @@
                 </div>
               </div>
             </div>
-            <div class="dashboard-taskmngr">
-              <h2>Administrador de tareas</h2>
-              <div class="dashboard-taskmngr-columns">
-                <div class="dashboard-taskmngr-input">
-                  <form id="taskmngrForm">
-                    <label for="taskmngr">Ingrese Tarea</label><br>
-                    <input type="text" name="taskmngr" id="taskmngr" /><br>
-                    <button type="submit">Guardar</button>
-                  </form>
-                </div>
-                <div id="taskmngrOutput" class="dashboard-taskmngr-output"></div>
-              </div>
-            </div>
           </div>
-          <div class="checkin" id="checkin"></div>
+          <div class="disabled" id="checkin">
             <div class="checkin-input">
                 <h2 class="section-title">Check Ins</h2>
                 <form action="" id="checkinForm">
@@ -144,7 +143,8 @@
                     <p>ID N213</p>
                 </div>
             </div>
-          <div class="checkout" id="checkout">
+          </div>  
+          <div class="disabled" id="checkout">
             <h2 class="section-title">Check Outs</h2>
             <label for="checkout-room">Seleccione Habitacion:</label>
             <select name="checkout-room" id="checkoutRoom">
@@ -153,13 +153,14 @@
             </select>
             <h4>Informacion</h4>
           </div>
-          <div class="history" id="history">
+          <div class="disabled" id="history">
             <h2 class="section-title">Historial</h2>
             <button class="history-clear-btn">Limpiar Historial</button>
           </div>
         </div>
       </main>
     </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="js/dashboard.js"></script>
     <script src="js/app.js"></script>
   </body>

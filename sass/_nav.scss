@@ -2,6 +2,7 @@
     background-color: #132D46;
     display: flex;
     flex-direction: column;
+    border-radius: 0 0 25px 0;
     &-button{
         display: grid;
         grid-template-columns: 1fr 6fr;
@@ -23,16 +24,16 @@
 
 // User Nav
 
-.userbar{
-   @extend .navigation-button;
-   background-color: #0D1F30;
-   display: flex;
-   flex-direction: row-reverse;
-   font-weight: 200;
-   height: 5vh;
-}
-.material-icons{
-    color: #01C38D;
-    font-size: 30px;
-    padding: 0px 8px 10px 8px;
-}
+// .userbar{
+//    @extend .navigation-button;
+//    background-color: #0D1F30;
+//    display: flex;
+//    flex-direction: row-reverse;
+//    font-weight: 200;
+//    height: 5vh;
+// }
+// .material-icons{
+//     color: #01C38D;
+//     font-size: 30px;
+//     padding: 0px 8px 10px 8px;
+// }

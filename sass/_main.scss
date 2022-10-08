@@ -1,7 +1,7 @@
 body{
-    background-color: #101318;
- overflow-y:hidden!important;
- overflow-x:hidden!important;
+background-color: #101318;
+overflow-y:hidden!important;
+overflow-x:hidden!important;
 }
 .sections{
     min-height: 92vh;
@@ -32,7 +32,7 @@ body{
         display:grid;
         grid-template-columns: 1fr 1fr;
         background-color: rgba(0,0,0,0.90);
-        box-shadow: 8px 8px 6px 2px rgba(0,0,0,0.75);
+        box-shadow: 8px 8px 6px 2px rgba(0,0,0,0.30);
         border-radius: 15px;
     }
     &-window-logo{
@@ -147,22 +147,53 @@ body{
             margin: 25px;
             display: block;
             flex-direction: column;
+            border-radius: 9px;
             input{
                 height: 26px;
                 margin: 16px;
                 width: 80%;
+                font-size: 22px;
+                background-color: #363636;
+                &:focus{
+                background-color: #636363;
+                }
             }
             button{
                 margin: 8px;
-                padding: 8px;
-                background-color: #121212;
+                padding: 8px 16px;
+                background-color: #101f06;
                 box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
-                border-radius: 5px;
+                border-radius: 9px;
                 color: #b2c5c0;
                 border: none;
+            }   
+        }
+        &-output{    
+            display: flex;
+            flex-direction: column;
+            &__card{
+                  width: 90%;
+                  display: grid;
+                  grid-template-columns: 1fr 10fr 1fr;
+                  text-align: left;
+                  padding: 8px 5px;
+                  background-color: #070a14;
+                  color: #01C38D;
+                  font-family: 'Inter Tight', sans-serif;
+                  border-radius: 9px;
+                  :first-child{
+                    font-size: 22px;
+                  }
+                  p{
+                    top: 4px;
+                  }
             }
         }
     }
 }
 
-// Recepcion - CheckIns101318
+// Recepcion - CheckIn
+.checkin{
+    @extend .sections;
+    text-align: center;
+}

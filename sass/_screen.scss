@@ -9,6 +9,9 @@
 .login-window-logo img{
     height: 400px;
 }
-.display-none{
+.disabled{
     display: none;
+}
+span:hover{
+    cursor: default ;
 }
