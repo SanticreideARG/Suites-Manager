@@ -5,9 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Suites Manager - A JS project</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"    rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
   </head>
   <body>
     <div class="display">
@@ -17,19 +24,27 @@
         </div>
         <div class="navigation-button">
           <span class="material-icons pills-icons">article</span>
-          <a id="dashboardLink" class="navigation-button" href="#dashboard">Dashboard</a>
+          <a id="dashboardLink" class="navigation-button" href="#dashboard"
+            >Dashboard</a
+          >
         </div>
-        <div  class="navigation-button">
+        <div class="navigation-button">
           <span class="material-icons pills-icons">bed</span>
-          <a id="checkinLink" class="navigation-button" href="#checkin">Recepcion</a>
+          <a id="checkinLink" class="navigation-button" href="#checkin"
+            >Recepcion</a
+          >
         </div>
         <div class="navigation-button">
           <span class="material-icons pills-icons">outbox</span>
-          <a id="checkoutLink" class="navigation-button" href="#checkout">Salida</a>
+          <a id="checkoutLink" class="navigation-button" href="#checkout"
+            >Salida</a
+          >
         </div>
         <div class="navigation-button">
           <span class="material-icons pills-icons">history</span>
-          <a id="historyLink" class="navigation-button" href="#history">Registro</a>
+          <a id="historyLink" class="navigation-button" href="#history"
+            >Registro</a
+          >
         </div>
         <div class="navigation-button">
           <span class="material-icons pills-icons">settings</span>
@@ -41,17 +56,30 @@
           <div id="login" class="login">
             <div class="login-window">
               <div class="login-window-logo">
-                <img src="assets/images/login-logo.png" alt="Suites Manager Logo" />
+                <img
+                  src="assets/images/login-logo.png"
+                  alt="Suites Manager Logo"
+                />
               </div>
               <div class="login-window-form">
-                <h2 >Bienvenido</h2>
+                <h2>Bienvenido</h2>
                 <form action="" id="login">
-                <label for="user">Usuario</label><br>
-                <input type="text" name="user" id="user" autocomplete="username"/><br>
-                <label for="password">Contraseña</label><br>
-                <input type="password" name="password" id="password" autocomplete="current-password"/><br>
-                <button type="submit">Ingresar</button>              
-              </form>
+                  <label for="user">Usuario</label><br />
+                  <input
+                    type="text"
+                    name="user"
+                    id="user"
+                    autocomplete="username"
+                  /><br />
+                  <label for="password">Contraseña</label><br />
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    autocomplete="current-password"
+                  /><br />
+                  <button type="submit">Ingresar</button>
+                </form>
               </div>
             </div>
           </div>
@@ -63,7 +91,8 @@
                   Habitaciones Totales
                   <span id="totalRooms">14</span>
                 </div>
-                <div class="dashboard-info-card">Habitaciones Libres
+                <div class="dashboard-info-card">
+                  Habitaciones Libres
                   <span id="freeRooms">11</span>
                 </div>
                 <div class="dashboard-info-card">
@@ -81,8 +110,8 @@
               <div class="dashboard-taskmngr-columns">
                 <div class="dashboard-taskmngr-input">
                   <form id="taskmngrForm">
-                    <label for="taskmngr">Ingrese Notas</label><br>
-                    <input type="text" name="taskmngr" id="taskmngr" /><br>
+                    <label for="taskmngr">Ingrese Notas</label><br />
+                    <input type="text" name="taskmngr" id="taskmngr" /><br />
                     <button type="submit">Guardar</button>
                   </form>
                 </div>
@@ -96,7 +125,7 @@
               <div class="dashboard-climate-info">
                 <div id="smaWeather" class="dashboard-climate-card">
                   <!-- San Martin de los Andes Weather comes here through API -->
-                </div>                
+                </div>
                 <div id="chapWeather" class="dashboard-climate-card">
                   <!-- Chapelco Weather comes here through API -->
                 </div>
@@ -110,85 +139,79 @@
           <div class="disabled" id="checkin">
             <h2 class="section-title">Check Ins</h2>
             <div class="checkin-columns">
-             <div class="checkin-input">
+              <div class="checkin-input">
                 <form action="" id="checkinForm">
-                    <label for="room">Habitacion</label>
-                    <select name="room" id="room" required>
-                        <option value="201">201</option>
-                        <option value="202">202</option>
-                        <option value="203">203</option>
-                        <option value="204">204</option>
-                        <option value="205">205</option>
-                        <option value="206">206</option>
-                    </select>
-                    <label for="country">Nacionalidad</label>
-                    <select name="country" id="country" required>
-                        <option value="arg">Argentina</option>
-                        <option value="chi">Chile</option>
-                        <option value="bra">Brasil</option>
-                        <option value="per">Peru</option>
-                        <option value="ita">Italia</option>
-                        <option value="uru">Uruguay</option>
-                        <option value="rpc">China</option>
-                        <option value="esp">España</option>
-                        <option value="usa">Estados Unidos</option>
-                        <option value="fra">Francia</option>
-                        <option value="otr">Otros</option>
-                    </select>
-                    <label for="name">Nombre</label>
-                    <input type="text" name="name" id="name" required>
-                    <label for="lastname">Apellido</label>
-                    <input type="text" name="lastname" id="lastname">
-                    <label for="days">Dias de estadia</label>
-                    <select name="days" id="days" required>
-                        <option value="1">1 Dia</option>
-                        <option value="2">2 Dias</option>
-                        <option value="3">3 Dias</option>
-                        <option value="4">4 Dias</option>
-                        <option value="5">5 Dias</option>
-                        <option value="6">6 o Mas</option>
-                    </select>
-                    <button type="submit">Registrar</button>
+                  <label for="room">Habitacion</label>
+                  <select name="room" id="room" required>
+                    <option value="201">201</option>
+                    <option value="202">202</option>
+                    <option value="203">203</option>
+                    <option value="204">204</option>
+                    <option value="205">205</option>
+                    <option value="206">206</option>
+                  </select>
+                  <label for="country">Nacionalidad</label>
+                  <select name="country" id="country" required>
+                    <option value="Arg">Argentina</option>
+                    <option value="Chi">Chile</option>
+                    <option value="Bra">Brasil</option>
+                    <option value="Per">Peru</option>
+                    <option value="Ita">Italia</option>
+                    <option value="Uru">Uruguay</option>
+                    <option value="Rpc">China</option>
+                    <option value="Esp">España</option>
+                    <option value="Usa">Estados Unidos</option>
+                    <option value="Fra">Francia</option>
+                    <option value="Otr">Otros</option>
+                  </select>
+                  <label for="name">Nombre</label>
+                  <input type="text" name="name" id="name" required />
+                  <label for="lastname">Apellido</label>
+                  <input type="text" name="lastname" id="lastname" />
+                  <label for="days">Dias de estadia</label>
+                  <select name="days" id="days" required>
+                    <option value="1">1 Dia</option>
+                    <option value="2">2 Dias</option>
+                    <option value="3">3 Dias</option>
+                    <option value="4">4 Dias</option>
+                    <option value="5">5 Dias</option>
+                    <option value="6">6 o Mas</option>
+                  </select>
+                  <button type="submit">Registrar</button>
                 </form>
-            </div>
-            <div class="checkin-output">
-                          <!-- Some card Examples. Real ones are rendered by JS -->
-                <div class="checkin-output__card">
-                    <h3>Mr. Jhon Sioux</h3>
-                    <p>Room 205</p>
-                    <p>Argentina</p>
-                    <p>ID 25555</p>
-                    <p>Ingreso: 23/10/22</p>
-                    <p>Salida: 25/10/22</p>
-                </div>
-                <div class="checkin-output__card">
-                  <h3>Mr. Jhon Sioux</h3>
-                  <p>Room 205</p>
-                  <p>Argentina</p>
-                  <p>ID 25555</p>
-                  <p>Ingreso: 23/10/22</p>
-                  <p>Salida: 25/10/22</p>
+              </div>
+              <div id="checkin-output" class="checkin-output">
+                <!-- Check Ins are Rendered here by JS -->
               </div>
             </div>
           </div>
-          </div>  
           <div class="disabled" id="checkout">
             <h2 class="section-title">Check Outs</h2>
-            <label for="checkout-room">Seleccione Habitacion:</label>
-            <select name="checkout-room" id="checkoutRoom">
-                <!-- Rooms are set here by JS -->
-                <option value="999">Room 999 for Testing</option>
-            </select>
-            <h4>Informacion</h4>
-          </div>
-          <div class="disabled" id="history">
-            <h2 class="section-title">Historial</h2>
-            <button class="history-clear-btn">Limpiar Historial</button>
+            <div class="checkin-columns">
+              <div class="checkout-select">
+                <label for="checkout-room">Seleccione Habitacion:</label>
+                <select name="checkout-room" id="checkoutRoom">
+                  <!-- Rooms are set here by JS -->
+                  <option value="999">Room 999 for Testing</option>
+                </select>
+                <h4>Informacion</h4>
+              </div>
+              <div class="checkout-display">
+                <p>Info</p>
+              </div>
+            </div>
+            <div class="disabled" id="history">
+              <h2 class="section-title">Historial</h2>
+              <button class="history-clear-btn">Limpiar Historial</button>
+            </div>
           </div>
         </div>
       </main>
     </div>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <script src="js/dashboard.js"></script>
     <script src="js/checkin.js"></script>
     <script src="js/app.js"></script>

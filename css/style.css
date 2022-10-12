@@ -42,7 +42,7 @@ body {
   overflow-y: hidden !important;
   overflow-x: hidden !important; }
 
-.sections, .dashboard, .checkin {
+.sections, .dashboard, .checkin, .checkout {
   min-height: 92vh;
   color: #b2c5c0;
   font-family: 'Inter Tight', sans-serif; }
@@ -229,6 +229,9 @@ body {
       border-radius: 9px; }
       .checkin-output__card p {
         padding: 3px; }
+
+.checkout {
+  text-align: center; }
 
 .sunnybg {
   width: 25%;

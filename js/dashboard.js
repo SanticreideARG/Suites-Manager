@@ -14,12 +14,13 @@ const getData = async () => {
   try {
     const respuesta = await fetch("https://ws.smn.gob.ar/map_items/weather/");
     const data = await respuesta.json();
+    console.log("Informacion de Api del Clima");
     console.log(data);
     smaWeatherDiv.innerHTML = `<h4>Clima en ${data[10].name}</h4>
          <p>${data[10].weather.description}</p>    
           <p>Temperatura: ${data[10].weather.temp}ºC</p>    
           <p>Humedad: ${data[10].weather.humidity}%</p>    
-          <p>Velocidad del viento: ${data[10].weather.wind_speed}</p> 
+          <p>Velocidad del viento: ${data[10].weather.wind_speed} Kmph</p> 
          `;
     chapWeatherDiv.innerHTML = `<h4>Clima en ${data[9].name}</h4>
          <p>${data[9].weather.description}</p>    
@@ -31,7 +32,7 @@ const getData = async () => {
          <p>${data[8].weather.description}</p>    
           <p>Temperatura: ${data[8].weather.temp}ºC</p>    
           <p>Humedad: ${data[8].weather.humidity}%</p>    
-          <p>Velocidad del viento: ${data[8].weather.wind_speed} </p> 
+          <p>Velocidad del viento: ${data[8].weather.wind_speed} Kmph</p> 
          `;
 
     //   El fondo de las tarjetas sera dinamico en funcion del clima que se detecte
@@ -88,8 +89,6 @@ const getData = async () => {
       smaWeatherInfo.includes("granizo")
     ) {
       smaWeatherDiv.className = "stormybg";
-    } else {
-      console.log("clima no detectado");
     }
     let chapWeatherInfo = data[9].weather.description;
 
@@ -143,11 +142,9 @@ const getData = async () => {
       chapWeatherInfo.includes("granizo")
     ) {
       chapWeatherDiv.className = "stormybg";
-    } else {
-      console.log("clima no detectado");
     }
+
     let nqnWeatherInfo = data[8].weather.description;
-    console.log(nqnWeatherInfo);
     if (
       nqnWeatherInfo.includes("despejado") ||
       nqnWeatherInfo.includes("Despejado") ||
@@ -198,8 +195,6 @@ const getData = async () => {
       nqnWeatherInfo.includes("granizo")
     ) {
       nqnWeatherDiv.className = "stormybg";
-    } else {
-      console.log("clima no detectado");
     }
   } catch {
     console.log("catch log");
@@ -218,7 +213,7 @@ taskmngrForm.addEventListener("submit", (e) => {
   let output = reserveInputs[2].value;
   outputid = outputid + 1;
   renderTasks(output, outputid);
-  reserveInputs[2].value = '';
+  reserveInputs.value = '';
 });
 
 

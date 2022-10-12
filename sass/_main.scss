@@ -250,3 +250,7 @@ overflow-x:hidden!important;
     }
     }
 }
+.checkout{
+    @extend .sections;
+    text-align: center;
+}
