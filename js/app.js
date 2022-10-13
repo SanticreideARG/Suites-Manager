@@ -29,7 +29,6 @@ loginform.addEventListener("submit", (e) => {
     setTimeout(() => {
       loginWindow.classList.replace("login", "disabled");
       sessionStorage.setItem("logged", "logged");
-      console.log(sessionStorage);
     }, 2000);
 
   }else if(user === "" || password === ""){

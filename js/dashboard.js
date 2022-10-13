@@ -202,30 +202,43 @@ const getData = async () => {
 };
 
 //Administrador del Taskmanager en la tercer seccion del Dashboard
-//El TaskManager es un CRUD sencillo para anotar tareas y eliminarlas luego de realizarlas.
-//Hace usoo de Local Storage y las tarjetas eliminadas son enviadas al historial.
+//El TaskManager es sencillo anotador de tareas, permite eliminarlas luego de realizarlas.
+//Consta de un Formulario:
 let taskmngrForm = document.getElementById("taskmngrForm");
-let taskmngrOutput = document.getElementById("taskmngrOutput");
 let outputid = 55;
 taskmngrForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let reserveInputs = e.target.children;
   let output = reserveInputs[2].value;
+  console.log(reserveInputs[2].value);
+  if (reserveInputs[2].value === "") {
+    Toastify({
+      text: "Ingrese una tarea",
+      style: {
+        background: "linear-gradient(to right, #132D46, #191E29)",
+      },
+    }).showToast();} else { 
   outputid = outputid + 1;
   renderTasks(output, outputid);
-  reserveInputs.value = '';
-});
+  reserveInputs[2].value = "";
+}});
 
 
+
+//Y un Output
+let taskmngrOutput = document.getElementById("taskmngrOutput");
 const renderTasks = (input, id) => {
-  console.log(id)
   let task = document.createElement("div");
-  task.innerHTML = `<div class="dashboard-taskmngr-output__card"><span class="material-icons pills-icons">task</span>
+  task.innerHTML = `
+  <div class="dashboard-taskmngr-output__card">
+  <span class="material-icons pills-icons">task</span>
   <p>${input}</p>
-  <span id=trashButton class="material-icons pills-icons">delete</span>`;
+  <span id="trashButton${id}" class="material-icons pills-icons">delete</span></div>`;
   taskmngrOutput.appendChild(task);
-  let trashButton = document.getElementById("trashButton");
-  trashButton.addEventListener("click", () => {
+  let trashButton = document.getElementById(`trashButton${id}`);
+  trashButton.addEventListener("click", (e) => {
+    console.log(trashButton)
+    item = trashButton.parentElement;
     taskmngrOutput.removeChild(task);
   });
 };
