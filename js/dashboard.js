@@ -1,4 +1,5 @@
-//Administrador de la botonera en la primer seccion del Dashboard
+//El administrador de la botonera en la primer seccion del Dashboard
+//se maneja como un modulo de la seccion de Checkins
 
 //Administrador del Widget del Clima en la segunda seccion del Dashboard
 
@@ -8,14 +9,14 @@ let nqnWeatherDiv = document.getElementById("nqnWeather");
 
 document.addEventListener("DOMContentLoaded", () => {
   getData();
+  storageTasks();
+  storageTasksHistory();
 });
 
 const getData = async () => {
   try {
     const respuesta = await fetch("https://ws.smn.gob.ar/map_items/weather/");
     const data = await respuesta.json();
-    console.log("Informacion de Api del Clima");
-    console.log(data);
     smaWeatherDiv.innerHTML = `<h4>Clima en ${data[10].name}</h4>
          <p>${data[10].weather.description}</p>    
           <p>Temperatura: ${data[10].weather.temp}ºC</p>    
@@ -36,7 +37,8 @@ const getData = async () => {
          `;
 
     //   El fondo de las tarjetas sera dinamico en funcion del clima que se detecte
-
+    //   El codigo se volvio un poco tedioso y repetitivo. probablemente podia haberlo simplificaddo, pero
+    //   me basto con hacerlo funcional momentaneamente.
     let smaWeatherInfo = data[10].weather.description;
 
     if (
@@ -204,14 +206,16 @@ const getData = async () => {
 //Administrador del Taskmanager en la tercer seccion del Dashboard
 //El TaskManager es sencillo anotador de tareas, permite eliminarlas luego de realizarlas.
 //Consta de un Formulario:
-let taskmngrForm = document.getElementById("taskmngrForm");
-let outputid = 55;
+let taskmngrForm = document.getElementById("taskmngrForm"); //Formulario de entrada
+let taskHistory = document.getElementById("taskHistory") ;  //Historial
+let outputid = 55;      //Arrancamos en el numero 55 para simular operaciones previas
+const tasksStorage = []   //las Tareas se almacenaran en este array
+const historyStorage = [] //y el historial de tareas aqui
 taskmngrForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  let reserveInputs = e.target.children;
-  let output = reserveInputs[2].value;
-  console.log(reserveInputs[2].value);
-  if (reserveInputs[2].value === "") {
+  let taskInput = e.target.children;
+  let output = taskInput[2].value;
+  if (taskInput[2].value === "") { //Prevenimos el ingreso de valores vacios y enviamos una alerta.
     Toastify({
       text: "Ingrese una tarea",
       style: {
@@ -219,11 +223,12 @@ taskmngrForm.addEventListener("submit", (e) => {
       },
     }).showToast();} else { 
   outputid = outputid + 1;
-  renderTasks(output, outputid);
-  reserveInputs[2].value = "";
+  renderTasks(output, outputid);   //Renderizamos las tareas con la funcion renderTasks
+  taskOutput = {"id": outputid , "task": output};
+  taskInput[2].value = "";        //Reiniciamos el Input
+  tasksStorage.push(taskOutput)
+  localStorage.setItem("tasksStorage", JSON.stringify(tasksStorage)); //Almacenamos la tarea en localStorage
 }});
-
-
 
 //Y un Output
 let taskmngrOutput = document.getElementById("taskmngrOutput");
@@ -235,10 +240,51 @@ const renderTasks = (input, id) => {
   <p>${input}</p>
   <span id="trashButton${id}" class="material-icons pills-icons">delete</span></div>`;
   taskmngrOutput.appendChild(task);
-  let trashButton = document.getElementById(`trashButton${id}`);
+  let trashButton = document.getElementById(`trashButton${id}`);    //Un boton para eliminar las entradas
   trashButton.addEventListener("click", (e) => {
-    console.log(trashButton)
+    let taskRegister = {id , input}
+    historyStorage.push(taskRegister)
+    localStorage.setItem("historyStorage", JSON.stringify(historyStorage));
+    console.log(historyStorage);
+    archiveTask (input, id);
     item = trashButton.parentElement;
-    taskmngrOutput.removeChild(task);
+    let taskindexof = tasksStorage.findIndex(t => t.id == id);
+    taskmngrOutput.removeChild(task);                             //Borramos el div de la lista
+    tasksStorage.splice(taskindexof, 1);                             //y borramos la entrada del array
+    localStorage.setItem("tasksStorage", JSON.stringify(tasksStorage)); //actualizamos el local storage ya sin la entrada
   });
 };
+//Restauramos las tareas guardadas en el Localstorage
+let storageTasks = ()=>{
+  if (localStorage.getItem("tasksStorage")) {
+    restoreStorage = JSON.parse(localStorage.getItem("tasksStorage"));
+    restoreStorage.forEach((restoretask) => {
+     tasksStorage.push(restoretask)
+     localStorage.setItem("tasksStorage", JSON.stringify(tasksStorage));
+      let tasktext = restoretask.task;
+      let taskid = restoretask.id;
+     renderTasks(tasktext , taskid);         }
+)}}
+
+let storageTasksHistory = ()=>{
+  if (localStorage.getItem("historyStorage")) {
+    restoreHistoryStorage = JSON.parse(localStorage.getItem("historyStorage"));
+    restoreHistoryStorage.forEach((restoretask) => {
+      historyStorage.push(restoretask)
+      let tasktext = restoretask.input;
+      let taskid = restoretask.id;
+      outputid = taskid + 1;
+      archiveTask(tasktext , taskid);
+    }
+)}//esta funcion almacena el historial de las tareas en el localStorage
+historyStorage.setItem("tasksStorage", JSON.stringify(tasksStorage));
+}  
+
+const archiveTask = (input, id) => {
+  let task = document.createElement("div");
+  task.innerHTML = `
+  <div class="dashboard-taskmngr-output__card">
+  <span class="material-icons pills-icons">task</span>
+  <p>${input}</p><p>${id}</p></div>`;
+  taskHistory.appendChild(task);
+}

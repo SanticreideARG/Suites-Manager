@@ -1,11 +1,10 @@
 //El Login es la primer parte de la aplicacion.
 //El usuario y la contraseña se daran definidos en las dos siguientes variables:
-
 let userdefined = "coder";
 let passwordefined = "coder";
+
 //Y nuestro formulario verificara que estas coincidan con dichos valores, cerrando nuestra pantalla
 //de logeo hasta la siguiente sesion mediante sessionStorage.
-
 window.addEventListener("DOMContentLoaded", () => {
   if (sessionStorage.getItem("logged")) {
     loginWindow.classList.replace("login", "disabled");
@@ -53,11 +52,13 @@ loginform.addEventListener("submit", (e) => {
 
 //Los  Enlaces de los nav se mannejan dentro de la misma pagina por medio de clases y display
 //que mostraran o no un div determinado.
+
 //Divs:
 const dashboardWindow = document.getElementById('dashboard');
 const checkinWindow = document.getElementById('checkin');
 const checkoutWindow = document.getElementById('checkout');
 const historyWindow = document.getElementById('history');
+
 //Enlaces:
 const dashboardLink = document.getElementById('dashboardLink');
 dashboardLink.addEventListener('click', () =>{
@@ -86,4 +87,5 @@ historyLink.addEventListener('click', () =>{
   dashboardWindow.classList.replace('dashboard','disabled');
   checkinWindow.classList.replace('checkin','disabled');
   checkoutWindow.classList.replace('checkout','disabled');
-  historyWindow.classList.replace('disabled','history');})
+  historyWindow.classList.replace('disabled','history');
+})

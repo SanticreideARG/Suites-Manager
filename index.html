@@ -89,15 +89,15 @@
               <div class="dashboard-info-cards">
                 <div class="dashboard-info-card">
                   Habitaciones Totales
-                  <span id="totalRooms">14</span>
+                  <span id="totalRooms">15</span>
                 </div>
                 <div class="dashboard-info-card">
                   Habitaciones Libres
-                  <span id="freeRooms">11</span>
+                  <span id="freeRooms"></span>
                 </div>
                 <div class="dashboard-info-card">
-                  Habitaciones Reservadas
-                  <span id="reservedRooms">2</span>
+                  Habitaciones Ocupadas
+                  <span id="ocupiedRooms"></span>
                 </div>
                 <div class="dashboard-info-card">
                   Habitaciones En Limpieza
@@ -142,13 +142,8 @@
               <div class="checkin-input">
                 <form action="" id="checkinForm">
                   <label for="room">Habitacion</label>
-                  <select name="room" id="room" required>
-                    <option value="201">201</option>
-                    <option value="202">202</option>
-                    <option value="203">203</option>
-                    <option value="204">204</option>
-                    <option value="205">205</option>
-                    <option value="206">206</option>
+                  <select name="room" id="roomOptions" required>
+
                   </select>
                   <label for="country">Nacionalidad</label>
                   <select name="country" id="country" required>
@@ -156,12 +151,15 @@
                     <option value="Chi">Chile</option>
                     <option value="Bra">Brasil</option>
                     <option value="Per">Peru</option>
+                    <option value="Col">Colombia</option>
+                    <option value="Vla">Venezuela</option>
                     <option value="Ita">Italia</option>
                     <option value="Uru">Uruguay</option>
                     <option value="Rpc">China</option>
                     <option value="Esp">España</option>
                     <option value="Usa">Estados Unidos</option>
                     <option value="Fra">Francia</option>
+                    <option value="Isr">Israel</option>
                     <option value="Otr">Otros</option>
                   </select>
                   <label for="name">Nombre</label>
@@ -189,20 +187,26 @@
             <h2 class="section-title">Check Outs</h2>
             <div class="checkin-columns">
               <div class="checkout-select">
-                <label for="checkout-room">Seleccione Habitacion:</label>
+                <h4>Seleccione Habitacion</h4><br>
                 <select name="checkout-room" id="checkoutRoom">
                   <!-- Rooms are set here by JS -->
-                  <option value="999">Room 999 for Testing</option>
                 </select>
                 <h4>Informacion</h4>
+                <div id="checkoutInfo"></div>
               </div>
               <div class="checkout-display">
-                <p>Info</p>
+                <p>Columna derecha</p>
               </div>
             </div>
-            <div class="disabled" id="history">
-              <h2 class="section-title">Historial</h2>
-              <button class="history-clear-btn">Limpiar Historial</button>
+
+          </div>
+          <div class="disabled" id="history">
+            <h2 class="section-title">Historial</h2>
+            <div class="history-section" id="taskHistory">
+              <h3>Historial de Tareas</h3>
+            </div>
+            <div class="history-section" id="checkoutsHistory">
+              <h3>Historial de Checkins</h3>
             </div>
           </div>
         </div>
@@ -212,8 +216,8 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
     ></script>
-    <script src="js/dashboard.js"></script>
     <script src="js/checkin.js"></script>
+    <script src="js/dashboard.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
