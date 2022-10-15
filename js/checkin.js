@@ -9,15 +9,15 @@ let idCheckinCounter = 555;
 //  Cargamos Algunos Check In a modo de Ejemplos Precargados
 let checkInArray = [
 [   {"Id": "553"},
-    {"Nombre": "Juan"},
-    {"Apellido": "Perez"},
-    {"Nacionalidad": "arg"},
+    {"Nombre": "Jose Luis"},
+    {"Apellido": "Ramirez"},
+    {"Nacionalidad": "Chi"},
     {"Habitacion": "205"},
     {"Dias": "2"}   ] ,
 
 [   {"Id": "554"},
-    {"Nombre": "Pepito"},
-    {"Apellido": "Sanchez"},
+    {"Nombre": "Noah"},
+    {"Apellido": "Da Silva"},
     {"Nacionalidad": "Bra"},
     {"Habitacion": "208"},
     {"Dias": "1"}       ],
@@ -65,7 +65,6 @@ const printItem = (entry) =>{
     <p>Salida: 25/10/22</p>
     </div>`;
     checkInDiv.appendChild(div); 
-    printCheckout(entry);
     freeToOcupied(entry);
     Toastify({
         text: `Aceptado huesped en habitacion ${entry[4].Habitacion}`,
@@ -75,11 +74,6 @@ const printItem = (entry) =>{
       }).showToast();
 }
 
-//el checkout se realiza desde la siguiente ventana
-let checkoutRoom = document.getElementById("checkoutRoom");
-const printCheckout = (entry) =>{
-
-}
 
 //Y guardamos los cambios de checkInArray en 
 window.addEventListener("DOMContentLoaded", () => {
@@ -92,6 +86,14 @@ window.addEventListener("DOMContentLoaded", () => {
     checkInArray.forEach((checkin) => {
         printItem(checkin);
     })}
+    if (localStorage.getItem("checkoutsHistoryLog")){
+    let restoreLog = JSON.parse(localStorage.getItem("checkoutsHistoryLog"));
+    console.log('restoreLog')
+    console.log(restoreLog)
+    restoreLog.forEach((checkin) => {
+        checkoutHistoryFunction(checkin);
+    })
+    }
 })
 
 //Aqui va la logica que maneja que habitaciones estan ocupadas y que habitaciones estan libres.
@@ -147,7 +149,6 @@ checkoutOptions.addEventListener('change', function(){
 let room = checkoutOptions.value;
 let index = checkInArray.findIndex((element) => element[4].Habitacion == checkoutOptions.value) //Buscamos el index en checkInArray
 let info = checkInArray[index];
-
 checkoutInfo.innerHTML = `
     <h3>Habitacion N ${room}</h3>
     <h4>${info[1].Nombre} ${info[2].Apellido}</h4>
@@ -162,7 +163,7 @@ const checkoutFunction = (room) =>{
     freeRooms.push(room); //Devolvemos la habitacion al array de los cuartos libres
     let index = ocupiedRooms.findIndex((element) => element == room); //buscamos el index en las habitaciones ocupadas
     ocupiedRooms.splice(index, 1); //y quitamos dicha habitacion de la lista.
-    console.log(ocupiedRooms);
+
     Toastify({
         text: `Checkout de habitacion ${room} Realizado con exito`,
         style: {
@@ -171,11 +172,30 @@ const checkoutFunction = (room) =>{
       }).showToast();
     createOptions(freeRooms);       //Actualizamos ambas listas
     createCheckoutOptions(ocupiedRooms);
+    let index2 = checkInArray.findIndex((element) => element[4].Habitacion == room);
+    console.log(index2);
+    let checkout = checkInArray.splice(index2, 1);
+    localStorage.setItem("checkinStorage", JSON.stringify(checkInArray));
+    checkoutHistoryFunction(checkout);
     let deleteThis = document.getElementById(`outputcard${room}`); //Seleccionamos el elemento a borrar de Checkins
     checkInDiv.removeChild(deleteThis);                            //Y lo borramos
 }
 
-
-
 let checkoutsHistory = document.getElementById('checkoutsHistory');
-
+const checkoutsHistoryLog = []
+const checkoutHistoryFunction = (checkout) =>{
+    checkoutsHistoryLog.push(checkout);
+    localStorage.setItem("checkoutsHistoryLog", JSON.stringify(checkoutsHistoryLog));
+    let div = document.createElement('div');
+    div.className = "checkin-card";
+    console.log(checkout);
+    div.innerHTML = `                
+    <div class="checkin-output__card" >
+    <h3>${checkout[0][1].Nombre} ${checkout[0][2].Apellido}</h3>
+    <p>${checkout[0][4].Habitacion}</p>
+    <p>${checkout[0][3].Nacionalidad}</p>
+    <p>Id: ${checkout[0][0].Id}</p>
+    <p>Ingreso: 23/10/22</p>
+    <p>Salida: 25/10/22</p>
+    </div>`;
+    checkoutsHistory.appendChild(div); }
