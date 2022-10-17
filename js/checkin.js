@@ -13,21 +13,24 @@ let checkInArray = [
     {"Apellido": "Ramirez"},
     {"Nacionalidad": "Chile"},
     {"Habitacion": "205"},
-    {"Dias": "2"}   ] ,
+    {"Dias": "3"},
+    {"Fecha": "18/10/2022"}   ] ,
 
 [   {"Id": "554"},
     {"Nombre": "Noah"},
     {"Apellido": "Da Silva"},
     {"Nacionalidad": "Brasil"},
     {"Habitacion": "208"},
-    {"Dias": "1"}       ],
+    {"Dias": "5"} ,
+    {"Fecha": "17/10/2022"}   ],
 
 [   {"Id": "555"},
     {"Nombre": "Marta"},
     {"Apellido": "Rodriguez"},
     {"Nacionalidad": "España"},
     {"Habitacion": "209"},
-    {"Dias": "1"}       ]
+    {"Dias": "3"} ,       
+    {"Fecha": "18/10/2022"}   ]
 ];
 
 //  Cargaremos los datos del formulario a un array llamado newCheckin y los 
@@ -36,13 +39,17 @@ checkinForm.addEventListener("submit", (e) => {
     e.preventDefault();
     let checkinInputs = e.target.children;
     idCheckinCounter = idCheckinCounter +1;
+    const d = new Date();
+    const fecha = d.toLocaleDateString();
     let newCheckin = 
     [{"Id": `${idCheckinCounter}`},
     {"Nombre": `${checkinInputs[5].value}`},
     {"Apellido": `${checkinInputs[7].value}`},
     {"Nacionalidad": `${checkinInputs[3].value}`},
     {"Habitacion": `${checkinInputs[1].value}`},
-    {"Dias": `${checkinInputs[9].value}`}];
+    {"Dias": `${checkinInputs[9].value}`},
+    {"Fecha": `${fecha}`}];
+    console.log(newCheckin)
     checkInArray.push(newCheckin);
     printItem(newCheckin);
     localStorage.setItem("checkinStorage", JSON.stringify(checkInArray));
@@ -53,6 +60,7 @@ checkinForm.addEventListener("submit", (e) => {
 // Los cargamos en el dom
 const printItem = (entry) =>{
     let div = document.createElement('div');
+    console.log(entry);
     div.className = "checkin-card";
     div.id = `outputcard${entry[4].Habitacion}`
     div.innerHTML = `                
@@ -61,7 +69,7 @@ const printItem = (entry) =>{
     <p>${entry[4].Habitacion}</p>
     <p>${entry[3].Nacionalidad}</p>
     <p>Id: ${entry[0].Id}</p>
-    <p>Ingreso: 23/10/22</p>
+    <p>Entrada: ${entry[6].Fecha}</p>
     <p>Salida: 25/10/22</p>
     </div>`;
     checkInDiv.appendChild(div); 
