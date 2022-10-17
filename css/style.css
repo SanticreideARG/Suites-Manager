@@ -58,7 +58,7 @@ body {
   height: 100%;
   width: 100%;
   background-color: #0a1022;
-  background-image: url(/assets/images/login-wallpaper.jpg);
+  background-image: url(../assets/images/login-wallpaper.jpg);
   background-size: cover;
   top: 0;
   left: 0;

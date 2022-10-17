@@ -17,9 +17,7 @@ const getData = async () => {
   try {
     const respuesta = await fetch("https://ws.smn.gob.ar/map_items/weather/");
     const data = await respuesta.json();
-    console.log('data de fetch');
-    console.log(data);
-
+    
     smaWeatherDiv.innerHTML = `<h4>Clima en ${data[120].name}</h4>
          <p>${data[120].weather.description}</p>    
           <p>Temperatura: ${data[120].weather.temp}ºC</p>    

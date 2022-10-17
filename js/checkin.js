@@ -39,8 +39,8 @@ checkinForm.addEventListener("submit", (e) => {
     e.preventDefault();
     let checkinInputs = e.target.children;
     idCheckinCounter++;
-    const d = new Date();
-    const fecha = d.toLocaleDateString();
+    const d = new Date();   //Obtenemos la Fecha Actual
+    const date = d.toLocaleDateString();    //La convertimos a un formato mas corto
     let newCheckin = 
     [{"Id": `${idCheckinCounter}`},
     {"Nombre": `${checkinInputs[5].value}`},
@@ -48,8 +48,7 @@ checkinForm.addEventListener("submit", (e) => {
     {"Nacionalidad": `${checkinInputs[3].value}`},
     {"Habitacion": `${checkinInputs[1].value}`},
     {"Dias": `${checkinInputs[9].value}`},
-    {"Fecha": `${fecha}`}];
-    console.log(newCheckin)
+    {"Fecha": `${date}`}];
     checkInArray.push(newCheckin);
     printItem(newCheckin);
     localStorage.setItem("checkinStorage", JSON.stringify(checkInArray));
@@ -58,10 +57,14 @@ checkinForm.addEventListener("submit", (e) => {
     checkinInputs[7].value = "";
   });
 
+  function sumarDias(fecha, dias){
+    fecha.setDate(fecha.getDate() + dias);
+    return fecha;
+  }
+
 // Los cargamos en el dom
 const printItem = (entry) =>{
     let div = document.createElement('div');
-    console.log(entry);
     div.className = "checkin-card";
     div.id = `outputcard${entry[4].Habitacion}`
     div.innerHTML = `                
@@ -71,7 +74,7 @@ const printItem = (entry) =>{
     <p>${entry[3].Nacionalidad}</p>
     <p>Id: ${entry[0].Id}</p>
     <p>Entrada: ${entry[6].Fecha}</p>
-    <p>Salida: 25/10/22</p>
+    <p>Estadia: ${entry[5].Dias} Dia/s</p>
     </div>`;
     checkInDiv.appendChild(div); 
     freeToOcupied(entry);
@@ -102,11 +105,8 @@ window.addEventListener("DOMContentLoaded", () => {
     })
     }if (localStorage.getItem("checkinIdStorage")){
         idCheckinCounter = localStorage.getItem("checkinIdStorage");
-        console.log(idCheckinCounter);
-        console.log('checkins restored');
     }
 })
-localStorage.setItem("checkinIdStorage", JSON.stringify(idCheckinCounter));
 
 //Aqui va la logica que maneja que habitaciones estan ocupadas y que habitaciones estan libres.
 let ocupiedRooms = [];
@@ -209,7 +209,7 @@ const checkoutHistoryFunction = (checkout) =>{
     <p>${checkout[0][4].Habitacion}</p>
     <p>${checkout[0][3].Nacionalidad}</p>
     <p>Id: ${checkout[0][0].Id}</p>
-    <p>Ingreso: 23/10/22</p>
-    <p>Salida: 25/10/22</p>
+    <p>Ingreso:${checkout[0][6].Fecha}</p>
+    <p>Estadia: ${checkout[0][5].Dias} Dias</p>
     </div>`;
     checkoutsHistory.appendChild(div); }
