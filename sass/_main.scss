@@ -261,4 +261,18 @@ overflow-x:hidden!important;
             border-radius: 9px;
         }
 }
+.history-section{
+    display: flex;
+    flex-direction: column;
+    overflow-y:auto;
+    max-height: 300px;                
+    scrollbar-color: dark;
+}
 
+.history-section2{
+    display: flex;
+    flex-direction: column;
+    overflow-y:auto;
+    height: 300px;                
+    scrollbar-color: dark;
+}

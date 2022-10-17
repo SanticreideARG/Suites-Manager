@@ -19,29 +19,30 @@ const getData = async () => {
     const data = await respuesta.json();
     console.log('data de fetch');
     console.log(data);
-    smaWeatherDiv.innerHTML = `<h4>Clima en ${data[10].name}</h4>
-         <p>${data[10].weather.description}</p>    
-          <p>Temperatura: ${data[10].weather.temp}ºC</p>    
-          <p>Humedad: ${data[10].weather.humidity}%</p>    
-          <p>Velocidad del viento: ${data[10].weather.wind_speed} Kmph</p> 
+
+    smaWeatherDiv.innerHTML = `<h4>Clima en ${data[120].name}</h4>
+         <p>${data[120].weather.description}</p>    
+          <p>Temperatura: ${data[120].weather.temp}ºC</p>    
+          <p>Humedad: ${data[120].weather.humidity}%</p>    
+          <p>Velocidad del viento: ${data[120].weather.wind_speed} Kmph</p> 
          `;
-    chapWeatherDiv.innerHTML = `<h4>Clima en ${data[9].name}</h4>
-         <p>${data[9].weather.description}</p>    
-          <p>Temperatura: ${data[9].weather.temp}ºC</p>    
-          <p>Humedad: ${data[9].weather.humidity}%</p>    
-          <p>Velocidad del viento: ${data[9].weather.wind_speed} Kmph</p> 
+    chapWeatherDiv.innerHTML = `<h4>Clima en ${data[158].name}</h4>
+         <p>${data[158].weather.description}</p>    
+          <p>Temperatura: ${data[158].weather.temp}ºC</p>    
+          <p>Humedad: ${data[158].weather.humidity}%</p>    
+          <p>Velocidad del viento: ${data[158].weather.wind_speed} Kmph</p> 
          `;
-    nqnWeatherDiv.innerHTML = `<h4>Clima en ${data[8].name}</h4>
-         <p>${data[8].weather.description}</p>    
-          <p>Temperatura: ${data[8].weather.temp}ºC</p>    
-          <p>Humedad: ${data[8].weather.humidity}%</p>    
-          <p>Velocidad del viento: ${data[8].weather.wind_speed} Kmph</p> 
+    nqnWeatherDiv.innerHTML = `<h4>Clima en ${data[176].name}</h4>
+         <p>${data[176].weather.description}</p>    
+          <p>Temperatura: ${data[176].weather.temp}ºC</p>    
+          <p>Humedad: ${data[176].weather.humidity}%</p>    
+          <p>Velocidad del viento: ${data[176].weather.wind_speed} Kmph</p> 
          `;
 
     //   El fondo de las tarjetas sera dinamico en funcion del clima que se detecte
     //   El codigo se volvio un poco tedioso y repetitivo. probablemente podia haberlo simplificaddo, pero
     //   me basto con hacerlo funcional momentaneamente.
-    let smaWeatherInfo = data[10].weather.description;
+    let smaWeatherInfo = data[120].weather.description;
 
     if (
       smaWeatherInfo.includes("despejado") ||
@@ -94,7 +95,7 @@ const getData = async () => {
     ) {
       smaWeatherDiv.className = "stormybg";
     }
-    let chapWeatherInfo = data[9].weather.description;
+    let chapWeatherInfo = data[158].weather.description;
 
     if (
       chapWeatherInfo.includes("despejado") ||
@@ -148,7 +149,7 @@ const getData = async () => {
       chapWeatherDiv.className = "stormybg";
     }
 
-    let nqnWeatherInfo = data[8].weather.description;
+    let nqnWeatherInfo = data[176].weather.description;
     if (
       nqnWeatherInfo.includes("despejado") ||
       nqnWeatherInfo.includes("Despejado") ||

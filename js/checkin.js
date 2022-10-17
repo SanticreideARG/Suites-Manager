@@ -38,7 +38,7 @@ let checkInArray = [
 checkinForm.addEventListener("submit", (e) => {
     e.preventDefault();
     let checkinInputs = e.target.children;
-    idCheckinCounter = idCheckinCounter +1;
+    idCheckinCounter++;
     const d = new Date();
     const fecha = d.toLocaleDateString();
     let newCheckin = 
@@ -53,6 +53,7 @@ checkinForm.addEventListener("submit", (e) => {
     checkInArray.push(newCheckin);
     printItem(newCheckin);
     localStorage.setItem("checkinStorage", JSON.stringify(checkInArray));
+    localStorage.setItem("checkinIdStorage", JSON.stringify(idCheckinCounter));
     checkinInputs[5].value = "";
     checkinInputs[7].value = "";
   });
@@ -99,8 +100,13 @@ window.addEventListener("DOMContentLoaded", () => {
     restoreLog.forEach((checkin) => {
         checkoutHistoryFunction(checkin);
     })
+    }if (localStorage.getItem("checkinIdStorage")){
+        idCheckinCounter = localStorage.getItem("checkinIdStorage");
+        console.log(idCheckinCounter);
+        console.log('checkins restored');
     }
 })
+localStorage.setItem("checkinIdStorage", JSON.stringify(idCheckinCounter));
 
 //Aqui va la logica que maneja que habitaciones estan ocupadas y que habitaciones estan libres.
 let ocupiedRooms = [];
@@ -180,6 +186,8 @@ const checkoutFunction = (room) =>{
       }).showToast();
     createOptions(freeRooms);       //Actualizamos ambas listas
     createCheckoutOptions(ocupiedRooms);
+    ocupiedRoomsOutput.innerHTML = ocupiedRooms.length;
+    freeRoomsOutput.innerHTML = freeRooms.length;
     let index2 = checkInArray.findIndex((element) => element[4].Habitacion == room);
     let checkout = checkInArray.splice(index2, 1);
     localStorage.setItem("checkinStorage", JSON.stringify(checkInArray));

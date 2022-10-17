@@ -241,13 +241,27 @@ body {
     margin-top: 15px;
     border-radius: 9px; }
 
+.history-section {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: 300px;
+  scrollbar-color: dark; }
+
+.history-section2 {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 300px;
+  scrollbar-color: dark; }
+
 .sunnybg {
   width: 25%;
   padding: 15px;
   box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
   margin-top: 25px;
   border-radius: 6px;
-  background-image: url(/assets/images/climate/sunnybg.jpg);
+  background-image: url(../assets/images/climate/sunnybg.jpg);
   background-size: cover; }
 
 .cloudybg {
@@ -256,7 +270,7 @@ body {
   box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
   margin-top: 25px;
   border-radius: 6px;
-  background-image: url(/assets/images/climate/cloudybg.jpg);
+  background-image: url(../assets/images/climate/cloudybg.jpg);
   background-size: cover; }
 
 .rainybg {
@@ -265,7 +279,7 @@ body {
   box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
   margin-top: 25px;
   border-radius: 6px;
-  background-image: url(/assets/images/climate/rainybg.jpg);
+  background-image: url(../assets/images/climate/rainybg.jpg);
   background-size: cover; }
 
 .windybg {
@@ -274,7 +288,7 @@ body {
   box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
   margin-top: 25px;
   border-radius: 6px;
-  background-image: url(/assets/images/climate/windybg.jpg);
+  background-image: url(../assets/images/climate/windybg.jpg);
   background-size: cover; }
 
 .snowybg {
@@ -283,7 +297,7 @@ body {
   box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
   margin-top: 25px;
   border-radius: 6px;
-  background-image: url(/assets/images/climate/snowybg.jpg);
+  background-image: url(../assets/images/climate/snowybg.jpg);
   background-size: cover; }
 
 .stormybg {
@@ -292,7 +306,7 @@ body {
   box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
   margin-top: 25px;
   border-radius: 6px;
-  background-image: url(/assets/images/climate/stormybg.jpg);
+  background-image: url(../assets/images/climate/stormybg.jpg);
   background-size: cover; }
 
 @media (max-width: 868px) {
