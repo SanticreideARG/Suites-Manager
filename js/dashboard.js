@@ -17,6 +17,8 @@ const getData = async () => {
   try {
     const respuesta = await fetch("https://ws.smn.gob.ar/map_items/weather/");
     const data = await respuesta.json();
+    console.log('data de fetch');
+    console.log(data);
     smaWeatherDiv.innerHTML = `<h4>Clima en ${data[10].name}</h4>
          <p>${data[10].weather.description}</p>    
           <p>Temperatura: ${data[10].weather.temp}ºC</p>    
@@ -277,7 +279,6 @@ let storageTasksHistory = ()=>{
       archiveTask(tasktext , taskid);
     }
 )}//esta funcion almacena el historial de las tareas en el localStorage
-historyStorage.setItem("tasksStorage", JSON.stringify(tasksStorage));
 }  
 
 const archiveTask = (input, id) => {

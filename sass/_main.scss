@@ -8,7 +8,7 @@ overflow-x:hidden!important;
 .sections{
     min-height: 92vh;
     color: #b2c5c0;
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Outfit', sans-serif;
 }
 
 
@@ -57,7 +57,7 @@ overflow-x:hidden!important;
             margin-bottom: 25px;
         }
         label{
-            font-family: 'Inter Tight', sans-serif;
+            font-family: 'Outfit', sans-serif;
             font-weight: 600;
         }
         input{
@@ -191,7 +191,7 @@ overflow-x:hidden!important;
                   padding: 8px 5px;
                   background-color: #070a14;
                   color: #01C38D;
-                  font-family: 'Inter Tight', sans-serif;
+                  font-family: 'Outfit', sans-serif;
                   border-radius: 9px;
                   :first-child{
                     font-size: 22px;
@@ -242,15 +242,23 @@ overflow-x:hidden!important;
         margin: 2px;
         background-color: #070a14;
         color: #01C38D;
-        font-family: 'Inter Tight', sans-serif;
+        font-family: 'Outfit', sans-serif;
         border-radius: 9px;
         p{
             padding: 3px;
         }
     }
-    }
+  }
 }
 .checkout{
     @extend .sections;
     text-align: center;
+    &-button{
+            background-color: #070a14;
+            color: #01C38D;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 9px;
+        }
 }
+

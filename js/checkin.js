@@ -11,21 +11,21 @@ let checkInArray = [
 [   {"Id": "553"},
     {"Nombre": "Jose Luis"},
     {"Apellido": "Ramirez"},
-    {"Nacionalidad": "Chi"},
+    {"Nacionalidad": "Chile"},
     {"Habitacion": "205"},
     {"Dias": "2"}   ] ,
 
 [   {"Id": "554"},
     {"Nombre": "Noah"},
     {"Apellido": "Da Silva"},
-    {"Nacionalidad": "Bra"},
+    {"Nacionalidad": "Brasil"},
     {"Habitacion": "208"},
     {"Dias": "1"}       ],
 
 [   {"Id": "555"},
     {"Nombre": "Marta"},
     {"Apellido": "Rodriguez"},
-    {"Nacionalidad": "Esp"},
+    {"Nacionalidad": "España"},
     {"Habitacion": "209"},
     {"Dias": "1"}       ]
 ];
@@ -88,8 +88,6 @@ window.addEventListener("DOMContentLoaded", () => {
     })}
     if (localStorage.getItem("checkoutsHistoryLog")){
     let restoreLog = JSON.parse(localStorage.getItem("checkoutsHistoryLog"));
-    console.log('restoreLog')
-    console.log(restoreLog)
     restoreLog.forEach((checkin) => {
         checkoutHistoryFunction(checkin);
     })
@@ -151,11 +149,13 @@ let index = checkInArray.findIndex((element) => element[4].Habitacion == checkou
 let info = checkInArray[index];
 checkoutInfo.innerHTML = `
     <h3>Habitacion N ${room}</h3>
-    <h4>${info[1].Nombre} ${info[2].Apellido}</h4>
+    <h4>Nombre: ${info[1].Nombre} ${info[2].Apellido}</h4>
+    <h5>Procedencia: ${info[3].Nacionalidad}</h4>
     <button class="checkout-button" id="checkoutButton${room}">Checkout</button>`
     let checkoutButton = document.getElementById(`checkoutButton${room}`);
     checkoutButton.addEventListener( 'click', () =>{
     checkoutFunction(room);
+    checkoutInfo.innerHTML = ` `
 })
 });
 
@@ -173,7 +173,6 @@ const checkoutFunction = (room) =>{
     createOptions(freeRooms);       //Actualizamos ambas listas
     createCheckoutOptions(ocupiedRooms);
     let index2 = checkInArray.findIndex((element) => element[4].Habitacion == room);
-    console.log(index2);
     let checkout = checkInArray.splice(index2, 1);
     localStorage.setItem("checkinStorage", JSON.stringify(checkInArray));
     checkoutHistoryFunction(checkout);
@@ -188,7 +187,6 @@ const checkoutHistoryFunction = (checkout) =>{
     localStorage.setItem("checkoutsHistoryLog", JSON.stringify(checkoutsHistoryLog));
     let div = document.createElement('div');
     div.className = "checkin-card";
-    console.log(checkout);
     div.innerHTML = `                
     <div class="checkin-output__card" >
     <h3>${checkout[0][1].Nombre} ${checkout[0][2].Apellido}</h3>

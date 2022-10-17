@@ -89,3 +89,13 @@ historyLink.addEventListener('click', () =>{
   checkoutWindow.classList.replace('checkout','disabled');
   historyWindow.classList.replace('disabled','history');
 })
+
+let ajustes = document.getElementById('ajustesButton');
+ajustes.addEventListener('click', () =>{
+  Toastify({
+    text: "Seccion no disponible",
+    style: {
+      background: "linear-gradient(to right, #4b5cc4, #fc7174)",
+    },
+  }).showToast();
+})

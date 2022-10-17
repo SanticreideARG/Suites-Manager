@@ -48,7 +48,7 @@
         </div>
         <div class="navigation-button">
           <span class="material-icons pills-icons">settings</span>
-          <a class="navigation-button" href="#">Ajustes</a>
+          <a id="ajustesButton" class="navigation-button" href="#">Ajustes</a>
         </div>
       </nav>
       <main>
@@ -99,10 +99,6 @@
                   Habitaciones Ocupadas
                   <span id="ocupiedRooms"></span>
                 </div>
-                <div class="dashboard-info-card">
-                  Habitaciones En Limpieza
-                  <span id="cleaningRooms">1</span>
-                </div>
               </div>
             </div>
             <div class="dashboard-taskmngr">
@@ -142,25 +138,23 @@
               <div class="checkin-input">
                 <form action="" id="checkinForm">
                   <label for="room">Habitacion</label>
-                  <select name="room" id="roomOptions" required>
-
-                  </select>
+                  <select name="room" id="roomOptions" required></select>
                   <label for="country">Nacionalidad</label>
                   <select name="country" id="country" required>
-                    <option value="Arg">Argentina</option>
-                    <option value="Chi">Chile</option>
-                    <option value="Bra">Brasil</option>
-                    <option value="Per">Peru</option>
-                    <option value="Col">Colombia</option>
-                    <option value="Vla">Venezuela</option>
-                    <option value="Ita">Italia</option>
-                    <option value="Uru">Uruguay</option>
-                    <option value="Rpc">China</option>
-                    <option value="Esp">España</option>
-                    <option value="Usa">Estados Unidos</option>
-                    <option value="Fra">Francia</option>
-                    <option value="Isr">Israel</option>
-                    <option value="Otr">Otros</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Peru">Peru</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Venezuela">Venezuela</option>
+                    <option value="Italia">Italia</option>
+                    <option value="Uruguay">Uruguay</option>
+                    <option value="China">China</option>
+                    <option value="España">España</option>
+                    <option value="Estados Unidos">Estados Unidos de A.</option>
+                    <option value="Francia">Francia</option>
+                    <option value="Israel">Israel</option>
+                    <option value="Otros">Otros</option>
                   </select>
                   <label for="name">Nombre</label>
                   <input type="text" name="name" id="name" required />
@@ -187,18 +181,19 @@
             <h2 class="section-title">Check Outs</h2>
             <div class="checkin-columns">
               <div class="checkout-select">
-                <h4>Seleccione Habitacion</h4><br>
+                <h4>Seleccione Habitacion</h4>
+                <br />
                 <select name="checkout-room" id="checkoutRoom">
                   <!-- Rooms are set here by JS -->
                 </select>
-                <h4>Informacion</h4>
-                <div id="checkoutInfo"></div>
               </div>
               <div class="checkout-display">
-                <p>Columna derecha</p>
+                <h4>Informacion</h4>
+                <div id="checkoutInfo">
+
+                </div>
               </div>
             </div>
-
           </div>
           <div class="disabled" id="history">
             <h2 class="section-title">Historial</h2>
@@ -221,23 +216,3 @@
     <script src="js/app.js"></script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
