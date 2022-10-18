@@ -57,10 +57,6 @@ checkinForm.addEventListener("submit", (e) => {
     checkinInputs[7].value = "";
   });
 
-  function sumarDias(fecha, dias){
-    fecha.setDate(fecha.getDate() + dias);
-    return fecha;
-  }
 
 // Los cargamos en el dom
 const printItem = (entry) =>{
