@@ -10,6 +10,7 @@ Para entrar se debe ingresar los siguientes campos
 
 ----------------------------------------------------------------------------------------------
 
+No Responsive.
 
 Este proyecto fue desarrollado como parte de una practica para mi cursada de Javascript en la carrera de Desarrollo
 web de CODERHOUSE.
