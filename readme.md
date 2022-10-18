@@ -3,7 +3,7 @@
 ## A JS Project
 
 
-Para ingresar se debe ingresar los siguientes campos
+Para entrar se debe ingresar los siguientes campos
 
 >Usuario:    coder
 >Contraseña: coder
