@@ -253,6 +253,12 @@ const renderTasks = (input, id) => {
     taskmngrOutput.removeChild(task);                             //Borramos el div de la lista
     tasksStorage.splice(taskindexof, 1);                             //y borramos la entrada del array
     localStorage.setItem("tasksStorage", JSON.stringify(tasksStorage)); //actualizamos el local storage ya sin la entrada
+    Toastify({
+      text: `Tarea Archivada`,
+      style: {
+        background: "linear-gradient(to right, #132D46, #191E29)",
+      },
+    }).showToast();
   });
 };
 //Restauramos las tareas guardadas en el Localstorage

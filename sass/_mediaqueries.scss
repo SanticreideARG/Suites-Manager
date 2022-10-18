@@ -7,6 +7,10 @@
             height: 280px;
         }
     }
+    .checkin-columns{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
 }
 
 @media (max-width: 420px) {
@@ -15,11 +19,6 @@
     }
     .login-window{
         width: 95%;
-        &-logo img{
-            height: 230px;
-        }
-        &-form input{
-            width: 100%;
-        }
     }
+    
 }

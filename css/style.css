@@ -315,14 +315,13 @@ body {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr; }
     .login-window-logo img {
-      height: 280px; } }
+      height: 280px; }
+  .checkin-columns {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr; } }
 
 @media (max-width: 420px) {
   .section {
     width: 100%; }
   .login-window {
-    width: 95%; }
-    .login-window-logo img {
-      height: 230px; }
-    .login-window-form input {
-      width: 100%; } }
+    width: 95%; } }
