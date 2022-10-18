@@ -8,3 +8,18 @@
         }
     }
 }
+
+@media (max-width: 420px) {
+    .section{
+        width: 100%;
+    }
+    .login-window{
+        width: 95%;
+        &-logo img{
+            height: 230px;
+        }
+        &-form input{
+            width: 100%;
+        }
+    }
+}

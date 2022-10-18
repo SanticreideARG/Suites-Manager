@@ -184,7 +184,7 @@ body {
       display: grid;
       grid-template-columns: 1fr 10fr 1fr;
       text-align: left;
-      padding: 8px 5px;
+      padding: 10px 7px;
       background-color: #070a14;
       color: #01C38D;
       font-family: 'Outfit', sans-serif;
@@ -316,3 +316,13 @@ body {
     grid-template-rows: 1fr 1fr; }
     .login-window-logo img {
       height: 280px; } }
+
+@media (max-width: 420px) {
+  .section {
+    width: 100%; }
+  .login-window {
+    width: 95%; }
+    .login-window-logo img {
+      height: 230px; }
+    .login-window-form input {
+      width: 100%; } }
